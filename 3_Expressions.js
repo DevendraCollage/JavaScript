@@ -143,3 +143,69 @@ console.log(5 >= 10); // Output: false
 
 //! What is the difference between == and === operators in JavaScript?
 //? The equality == operator is a comparison operator that compares two values and returns true if they are equal. The strict equality === operator is also a comparison operator, but it compares two values and returns true only if they are equal and of the same type.
+
+//* =================================
+//*     5: logical operators
+//* =================================
+
+//* There are three main logical operators: $$ (Logical AND), || (Logical OR), ! (Logical NOT)
+
+//? Logical AND (&&): Return true if both operands are true, otherwise, it returns false.
+// Example:
+var x1 = 5;
+var y1 = 10;
+console.log(x1 > 0 && y1 > 0); // Output: True
+
+//? Logical OR (||): Returns true is at least one of the operands is true, otherwise, it returns false.
+// Example:
+var a1 = 15;
+var b1 = 0;
+console.log(a1 > 10 || b1 > 10); // Output: True
+
+//? Logical NOT (!): Returns true if operand is false, and false if the operand is true. this will interchange the value of the variable.
+// Example:
+var isSoftware = false;
+console.log(!isSoftware); // Output: True
+
+//* ===================================
+//*        InterView Question
+//* ===================================
+
+//? Combining logical operators allows you to create complex conditions:
+//! Que: Write a program that determine if a person is eligible to drive based on their age greater than or equal to 18 and having a valid driver's license?
+
+var age = 18;
+var hadDrivingLicense = true;
+console.log(age >= 18 && hadDrivingLicense == true); // Output: True
+
+//! How would the result change if hadDrivingLicense was set to false?
+var age = 18;
+var hadDrivingLicense = false;
+console.log(age >= 18 && hadDrivingLicense == true); // Output: False
+
+//* ==========================================
+//*     6: Ternary (Conditional) operators
+//* ==========================================
+
+//? syntax: condition ? expressionIfTrue : expressionIfFalse
+
+//! Write a program to check if the candidates isEligibleToDrive or not? Age must be equal to or greater then 18.
+
+var isEligibleToDrive = 22;
+console.log(isEligibleToDrive >= 18 ? "You can drive!" : "You can not drive?"); // Output: You can drive (Because age is greater than 18)
+
+//! Que: Let's say you have a variable score representing a student's exam score. If the score if greater than or equal to 60, the student passes; otherwise, they fail. Use the conditional (ternary) operator t determine the result and store it in a variable called result. Log the result to the console?
+
+var studentScore = 67;
+var resultStudent = studentScore >= 60 ? "Pass" : "Fail!";
+console.log(resultStudent); // Output: Pass
+
+//* ===================================
+//*    Combined Interview Questions
+//* ===================================
+
+console.log("5" - 3); // Output: 2
+
+console.log(2 < 12 < 5); // Output: true (Explanation: 2 < 12 is true and this true < 5 will also true then this will answer the true -  because true has value default 1 and 1 < 5 is also true)
+
+console.log("20" + 10 + 10); // 201010
