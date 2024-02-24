@@ -180,6 +180,7 @@ console.log(add(10, 2));
 
 //! 1. Question 1: Calculator Function
 //! Write a JavaScript function calculator that takes two numbers and an operator as parameters and return the result of the operation. The function should support addition, subtraction, multiplication, and division.
+// This is simple function
 function Calculator(num1, num2, operator) {
   switch (operator) {
     case "+":
@@ -201,6 +202,27 @@ function Calculator(num1, num2, operator) {
 }
 Calculator(5, 3, "*");
 
+// This is fat arrow function (Anonymous functions)
+const Calc = (n1, n2, ope) => {
+  switch (ope) {
+    case "+":
+      console.log(n1 + n2);
+      break;
+    case "-":
+      console.log(n1 - n2);
+      break;
+    case "*":
+      console.log(n1 * n2);
+      break;
+    case "/":
+      console.log(n1 / n2);
+      break;
+    default:
+      console.log("Enter valid operator");
+  }
+};
+Calc(5, 3, "*");
+
 //! Reverse a String:
 //! Write a function to reverse a given string without using built-in reverse methods.
 function reverseString(str) {
@@ -210,18 +232,21 @@ function reverseString(str) {
   }
   return reversedStr;
 }
-console.log(reverseString("Dev")); // Output: veD
+console.log(reverseString("Devendra")); // Output: ardneveD
 
 //! Palindrome Check:
 //! Create a function to determine if a given string is a palindrome (reads the same backward as forward).
-function checkPalindrome(str) {
-  const lowerCaseStr = str.toLowerCase();
-  for (let i = 0; i < Math.floor(lowerCaseStr.length); i++) {
-    if (lowerCaseStr[i] !== lowerCaseStr[lowerCaseStr.length]) {
-      return false;
-    } else {
-      return true;
-    }
+const checkPalindrome = (str) => {
+  let reversedStr = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversedStr += str[i];
   }
-}
-console.log(checkPalindrome("DaD")); // Output: True
+  if (str === reversedStr) {
+    console.log("This is a palindrome string!");
+    return true;
+  } else {
+    console.log("This is not a palindrome string!");
+    return false;
+  }
+};
+console.log(checkPalindrome("radar")); // Output: This is a palindrome string!
