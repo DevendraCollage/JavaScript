@@ -80,18 +80,18 @@ numArr.map((currElem, index, numArr) => {
 
 // todo: Practice Time
 //! Write a program to Multiply each elements with 2
-const numbers = [1, 2, 3, 4, 5];
+// const numbers = [1, 2, 3, 4, 5];
 
 //? 1. map - Performs an action on each element
-const newArr = numbers.map((currElem, index, numbers) => {
-  return `${currElem * 2}`;
-});
-console.log(newArr);
+// const newArr = numbers.map((currElem, index, numbers) => {
+//   return `${currElem * 2}`;
+// });
+// console.log(newArr);
 
 //? 2. forEach - Perform an action on each element
-numbers.forEach((currElem, index, numbers) => {
-  console.log(currElem * 2);
-});
+// numbers.forEach((currElem, index, numbers) => {
+//   console.log(currElem * 2);
+// });
 
 //* Key Differences
 //! Return Value:
@@ -116,7 +116,7 @@ numbers.forEach((currElem, index, numbers) => {
 //? 👉 How to Insert, Add, Replace, and Delete Elements in Array (CRUD)
 
 //* This is my array to perform all the CRUD operation on this array
-let fruits = ["Apple", "Mango", "Watermelon", "Pineapple", "Orange"];
+// let fruits = ["Apple", "Mango", "Watermelon", "Pineapple", "Orange"];
 
 //? 1: push(): Method that adds one or more elements to the end of an array.
 // console.log(fruits); // Without push
@@ -179,7 +179,7 @@ console.log(numberArr.lastIndexOf(3)); // Output: 2
 //? 3. The includes method checks whether an array includes a certain element, returning true or false.
 console.log(numberArr.includes(1)); // Output: False
 
-// todo: Challenge time
+// TODO: Challenge time
 //? 1. Add Dec at the end of an array?
 // const month = ["Jan", "March", "April", "June", "July"];
 // month.push("Dec");
@@ -189,11 +189,185 @@ console.log(numberArr.includes(1)); // Output: False
 console.log(numberArr.splice(1, 3)); // When used to add elements, the splice method returns an empty array ([]).
 
 //? 3. Update March to Mar (update)?
-// const month = ["Jan", "March", "April", "June", "July"];
-// month.splice(1, 1, "Mar");
-// console.log(month);
+// const month2 = ["Jan", "Mar", "April", "June", "July"];
+// month2.splice(1, 1, "March");
+// console.log(month2);
 
 //? 4. Delete June from an Array?
-// const month = ["Jan", "March", "April", "June", "July"];
-// month.splice(3, 1);
-// console.log(month);
+// const months = ["Jan", "March", "April", "June", "July"];
+// months.splice(3, 1);
+// console.log(months);
+
+//* =========================================
+//*          Filter in an Array
+//* =========================================
+//? Search + Filter
+const numAll = [1, 2, 3, 4, 5, 6, 4, 5, 1, 4, 8, 9];
+
+//? 1. find Method: The find method is used to find the first element in an array that satisfies a provided testing function. It returns the first matching element or undefined if no element is found.
+
+// const eleGreaterFive = numAll.find((currElem) => {
+//   return currElem > 5;
+// });
+// console.log(eleGreaterFive);
+
+//? 2. findIndex Method: The findIndex() method of TypeArray instances returns the index of the first element in a types array that satisfies the provided function. If no elements satisfy the testing function, -1 is returned.
+
+// const eleGreaterFive = numAll.findIndex((currElem) => {
+//   return currElem > 2;
+// });
+// console.log(eleGreaterFive);
+
+//* 3: filter Method: The filter method creates a new array with all elements that pass the test implemented by the provided function.
+// syntax:
+//? filter(callbackFn)
+//? filter(callbackFn, thisArg)
+
+// const numbersAll = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// const result = numbersAll.filter((currElem) => {
+//   return currElem > 2;
+// });
+// console.log(result);
+
+// UseCase: In E-commerce website when we want to Remove ro delete any product from addToCart page.
+//! Ex. le'ts say user wants to delete value 6 and remaining value will be displayed to the console.
+
+const num = [6, 2, 6, 4, 5, 6, 7, 8, 6];
+
+// TODO: This function is used to find the elements from the array that will equals to 6
+let indexOfSix = num.filter((currElem) => {
+  return currElem !== 6;
+});
+console.log(indexOfSix);
+
+// TODO: Practice Time
+//? Question: Given an array of products where each product has a name and a price, write a function that uses the filter method to return an array containing only the products with a price less thn or equal to 500.
+//! Example 2: Filtering Products by Price
+const products = [
+  { name: "Laptop", price: 1200 },
+  { name: "Phone", price: 800 },
+  { name: "Tablet", price: 300 },
+  { name: "Smartwatch", price: 150 },
+];
+// Filter products with a price less than or equal to 500
+let filterProducts = products.filter((currElem) => {
+  return currElem.price <= 500;
+});
+console.log(filterProducts);
+
+//! Filter unique values from the given array
+const ArrayOfNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 5, 6, 7, 6, 15, 8, 6, 8, 6];
+let filterUniqueValue = ArrayOfNumber.filter(
+  (currElem, index, ArrayOfNumber) => {
+    // console.log(ArrayOfNumber[index]);
+    return ArrayOfNumber.indexOf(currElem) === index;
+  }
+);
+console.log(filterUniqueValue); // Type-1
+console.log(new Set(ArrayOfNumber)); // Type-2
+
+//* =========================================
+//*     How to Sort and Compare an Array
+//* =========================================
+//? How to Sort and Compare an Array
+//? Sorting an Array: The sort method sorts the elements of an array in place and returns the sorted array. By default, it sorts elements as strings.
+
+const fruits = ["Banana", "Mango", "Apple", "Orange"];
+
+// TODO: Sort the above fruits array
+fruits.sort();
+console.log(fruits);
+
+// const numbers = [4, 3, 1, 2, 7, 6, 4, 5, 8, 5, 4, 2, 3, 9, 7, 5, 6];
+
+// TODO: Soft the above numbers array
+// numbers.sort();
+// console.log(numbers);
+
+//? compare callback function
+// syntax
+// const sortedNumbers = numbers.sort((a, b) => a - b);
+// if(a>b) return 1  => switch the order
+//  if(b>a) return -1  => keep the order
+
+// numbers.sort((a, b) => {
+//   if (a > b) {
+//     return -1;
+//   }
+//   if (b > a) {
+//     return 1;
+//   }
+// });
+// console.log(numbers);
+
+// //? For Ascending order
+// const ascendingOrder = numbers.sort((a, b) => {
+//   if (a > b) {
+//     return 1;
+//   } else if (b > a) {
+//     return -1;
+//   }
+// });
+// console.log(ascendingOrder);
+
+// //? For Descending order
+// const descendingOrder = numbers.sort((a, b) => {
+//   if (a > b) {
+//     return -1;
+//   } else if (b > a) {
+//     return 1;
+//   }
+// });
+// console.log(descendingOrder);
+
+//* =========================================
+//*     Very Important Array Methods
+//* =========================================
+
+//? Map(), Filter(), Reduce()
+// map() creates a new array from calling a function for every array element.
+// map() does not execute the function for empty array elements.
+// map() does not change the original array.
+
+// Original array of numbers
+// const numbers = [1, 2, 3, 4, 5];
+
+//! Using map to square each number and create a new array
+const numbers = [1, 2, 3, 4, 5];
+const squareArrayElem = numbers.map((currElem, index, numbers) => {
+  return currElem * currElem;
+});
+console.log(squareArrayElem);
+
+//! 1. Using the map method, write a function that takes as array of strings and returns a new array where each string is capitalized.
+const words = ["apple", "orange", "banana", "watermelon", "pineapple"];
+const capiFruits = words.map((currElem, index, words) => {
+  return currElem.toUpperCase();
+});
+console.log(capiFruits);
+
+//! 2. Using map method, write a function that takes an array of numbers and returns a new array where each number is squared, but only if it's an even number.
+const nAll = [1, 2, 3, 4, 5];
+const squareEvenNum = nAll.map((currElem, index, nAll) => {
+  if (currElem % 2 == 0) {
+    return currElem * currElem;
+  } else {
+    return currElem;
+  }
+});
+console.log(squareEvenNum);
+
+//! 3. using the map method, write a function that takes an array of names and returns a new array where each name is prefixed with "Mr. ".
+const name = ["Devendra", "Divin", "Jay", "Paresh", "Prince"];
+const appendName = name.map((currElem, index, name) => {
+  return "Mr. " + currElem;
+});
+console.log(appendName);
+
+//! 4. Sum of the array numbers elements
+const sumOfNumbers = [152, 245, 200, 10, 85];
+const sum = sumOfNumbers.reduce((currElem, nextElem) => {
+  return currElem + nextElem;
+});
+console.log(sum);
