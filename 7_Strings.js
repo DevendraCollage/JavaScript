@@ -174,3 +174,130 @@ let myText = "Hello JavaScript, welcome to our world best JavaScript course";
 // console.log(myText.substring(1)); //* This will print same like slice of above
 // console.log(myText.replace("JavaScript", "React")); //* This will replace the first occurrence of the string
 // console.log(myText.replaceAll("JavaScript", "React")); //* This will replace all the characters of the string
+
+//* =========================================
+//*      Extracting String Characters
+//* =========================================
+//! Extracting String Characters
+// There are 3 methods for extracting string character:
+
+//? The charAt(position) Method
+//? The charCodeAt(position) Method
+//? The at(position) Method
+//* Let's see how they work
+
+//? charAt() : The charAt() method returns the characters at a specified index (position) in a string.
+// let demoStr = "Hello Devendra, Welcome to the JavaScript Development";
+// console.log(demoStr.charAt(5)); //* Output: "" (Empty string)
+// console.log(demoStr.charAt(-5)); //* Output: This will not support the negative indexing
+
+//? charCodeAt() : The charCodeAt() method returns the code of the character at a specified index in a string. The method returns a UTF-18 code (an integer between 0 and 65535)
+// let demoStr = "Hello Devendra, Welcome to the JavaScript Development";
+// console.log(demoStr.charCodeAt(8)); // Output: 118
+// and uppercase and lowercase are both different and their ascii code are different
+
+//TODO: ES2022 introduced the string method at():
+//? The at() method returns the character at a specified index (position) in a string. The at() method returns the same as charAt():
+// let demoStr = "Hello Devendra, Welcome to the JavaScript Development";
+// console.log(demoStr.at(8)); // Output: v
+// console.log(demoStr.at(-5)); // Output: p
+// this method will allow and follow the negative indexing in a string
+
+//TODO: Note
+// The at() method is a new addition to JavaScript.
+// It allows the use of negative indexes while charAt() do not.
+// Now you can use demoStr.at(-2) instead of charAt() do not.
+
+//* =========================================
+//*       Replacing String Content:
+//* =========================================
+//! Replacing String Content:
+//? replace(): The replace method is used to replace a specified value with another value.
+// const demoStr = "Hello world, Welcome JavaScript Development World!";
+// console.log(demoStr.replace(/world/, "Devendra")); // Output: Hello Devendra, Welcome JavaScript Developer World
+
+//? Case-Insensitive Replacement: To perform a case-insensitive replacement, you can use the i flag in the regular expression.
+// console.log(demoStr.replace(/world/gi, "Devendra")); // Output: Hello Devendra, Welcome JavaScript Developer Devendra
+
+//* =========================================
+//*         Other Useful Methods:
+//* =========================================
+
+//! Other Useful Methods:
+//? toUpperCase and toLowerCase: Converts the string to uppercase and lowercase.
+// const javaScript = "JAVASCRIPT";
+// console.log(javaScript.toLowerCase()); // Output: javascript
+
+// const react = "react.js";
+// console.log(react.toUpperCase()); // OUtput: REACT.JS
+
+//? trim: Removes whitespace from both ends of the string.
+// const myName = "     Devendra Parmar     ";
+// console.log(myName);
+// console.log(myName.length);
+// console.log(myName.trim());
+// console.log(myName.length);
+
+//? split(): Splits the string into an array of substrings based on a specified delimiter.
+// const fruits = "Apple, Orange, Banana";
+// console.log(fruits.split(", ").reverse().join()); //* Join have an default comma seprated
+
+//? repeat(): Repeat the string for the given number of times
+// const repl = "Apple";
+// console.log(repl.repeat(5));
+
+//* =========================================
+//*          Interview Questions
+//* =========================================
+
+//! 1. Write a JavaScript function that prints the letters 'a' through 'z' in the consol. You should use a loop to iterate through the letters and prints each one on a new line.
+
+// ? First get the a to z asci code of the letters
+console.log("a".charCodeAt());
+console.log("z".charCodeAt());
+
+// ? Now iterate the for loop and print the each letter on a new line
+for (let i = 97; i <= 122; i++) {
+  console.log(String.fromCharCode(i));
+}
+
+//! 2. Write a function to count the number of vowels in a string?
+
+const vowelsString = (str) => {
+  const countVowels = "aeiou";
+  let countNum = 0;
+  for (const count of str) {
+    if (countVowels.includes(count)) {
+      countNum++;
+    }
+  }
+  return countNum;
+};
+console.log(vowelsString("Devendra Parmar")); // Output: 5
+
+//! 3. Write a function to check if all the vowels presents in a string or not?
+
+const vowelsStr = (str) => {
+  const countVowels = "aeiou";
+  for (const count of str) {
+    if (!countVowels.includes(count)) {
+      return false;
+    }
+  }
+  return true;
+};
+console.log(vowelsStr("Devendra Parmar")); // Output: false
+
+//! 4. Write a JavaScript function to check if the give string is Pangram or not?
+//? Pangram string means in that string all the characters from a to z are included in the string that string is known as Pangram string.
+
+const pangramString = (str) => {
+  const countVowels = "abcdefghijklmnopqrstuvwxyz";
+  for (const iterator of str) {
+    if (!countVowels.includes(iterator)) {
+      return "This String is Not Pangram!";
+    }
+  }
+  return "This String is Pangram String!";
+};
+console.log(pangramString("Devendra parmar"));
