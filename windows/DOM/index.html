@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulation</title>
+  </head>
+  <body>
+    <h1>
+      Best JavaScript
+      <p>hello</p>
+    </h1>
+    <hr />
+    <p>Understanding The DOM Tree Structure</p>
+    <p>It's easy. Helps JS to communicate with HTML</p>
+
+    <!-- * Let's see DOM Navigation -->
+    <script>
+      // This will accessing the document object element
+      let parent = document;
+      let childBody = document.body;
+      let childHead = document.head;
+      console.log(childBody);
+      console.log(childHead);
+      console.log(parent);
+
+      //? Accessing child element
+      let childNode = childBody.childNodes;
+      let childNode2 = childBody.children;
+      console.log(childNode);
+      console.log(childNode2);
+
+      // Accessing first, sibling element
+      let firstElem = childBody.firstElementChild;
+      let firstSibling = firstElem.childNodes;
+      let nextSibling = firstSibling.nextSibling;
+      console.log(firstElem);
+      console.log(firstSibling);
+      console.log(nextSibling);
+
+      // Accessing last element child
+      let lastChild = childBody.lastElementChild;
+      console.log(lastChild);
+    </script>
+  </body>
+</html>

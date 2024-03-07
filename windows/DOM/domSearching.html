@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Searching</title>
+  </head>
+  <!-- * It's a document node -->
+  <body>
+    <div>
+      <h1 id="heading">DOM API</h1>
+      <ul class="list-of-node">
+        <li>1 node</li>
+        <li>2 node</li>
+        <li>3 node</li>
+        <li>4 node</li>
+        <li style="display: none">5 node</li>
+      </ul>
+    </div>
+    <div>
+      <h1>DOM API</h1>
+      <input type="text" />
+      <button>Click Me</button>
+      <div class="value"></div>
+    </div>
+    <script>
+      //   let findById = document.getElementById("heading");
+      //   let findById = document.getElementsByClassName("list-of-node");
+      //   for (const iterator of findById) {
+      //     console.log(iterator.innerHTML);
+      //     console.log(iterator.innerText);
+      //     console.log(iterator.textContent);
+      //   }
+      //   console.log(findById);
+
+      //! The Difference between this three methods innerHTMl, innerText, and textContent --------------------------------
+      // The `innerHTML` property the complete content, including all HTML tags, inside the `ul` elements and their text content.
+
+      // Example using `innerText`: Prints text as it appears on screen, considering styling and excluding hidden text.
+
+      // Example using `textContent` : Prints text as it is in the markup, including hidden text and without considering styling.
+
+      //   let findAndId = document.getElementById("heading");
+      //   console.log(findAndId.innerHTML);
+
+      // Get Element with tag name
+      let getWithTag = document.getElementsByTagName("li");
+      console.log(getWithTag);
+
+      // Iterate through the loop
+      for (const iterator of getWithTag) {
+        // console.log(iterator.innerHTML);
+        // console.log(iterator.innerText);
+        // console.log(iterator.textContent);
+      }
+
+      // Access element using query selector - this select element through match the css
+      //   let getWithQuery = document.querySelector("#heading");
+      //   console.log((getWithQuery.innerHTML = "Devendra parmar"));
+
+      //   let getWithQueryLi = document.querySelectorAll("li");
+      //   console.log((getWithQueryLi.innerHTML = "Apple"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM CRUD - Create, Read, Update, Delete</title>
+    <!-- * This is extra font link -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- * This is my External CSS File link -->
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Simple DOM Todo App</h1>
+      <input type="text" id="inputField" />
+      <button class="btn">click me</button>
+      <div class="todoListsElem">
+        <br />
+      </div>
+    </div>
+
+    <script>
+      let getInput = document.getElementById("inputField"); // This will access the input filed
+      let btn = document.querySelector(".btn"); // This will access the button with this class name
+      let todoListsElem = document.querySelector(".todoListsElem"); // This will access the paragraph with this class name
+
+      const todo = () => {
+        // Add new element to the list
+        console.log(getInput.value);
+        let paramElem = document.createElement("p");
+        paramElem.textContent = getInput.value;
+        todoListsElem.append(paramElem);
+        getInput.value = "";
+      };
+
+      todoListsElem.addEventListener("click", (e) => {
+        // Delete already exists elements
+        let inputValue = e.target;
+        inputValue.remove();
+      });
+
+      btn.addEventListener("click", () => {
+        todo();
+      });
+    </script>
+  </body>
+</html>
