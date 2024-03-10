@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- * Start Inline Event -->
+    <h1>Inline Event</h1>
+    <button onclick="alert('Welcome! this is onClick event')">Click me</button>
+    <button ondblclick="alert('Welcome Again! this is ondbclick event')">
+      Double Click on me
+    </button>
+    <button onmouseenter="alert('Welcome Again! this is a onmouseenter event')">
+      Hover on me
+    </button>
+    <!-- * End Inline Event -->
+
+    <!-- * Start DOM Event Handler -->
+    <h1>Dom Event Handler</h1>
+    <button id="myBtn1">Click me</button>
+    <button id="myBtn2">Click on me again</button>
+    <button id="myBtn3">Hover on me</button>
+    <!-- * End Dom Event Handler -->
+
+    <!-- * Start Add Event Listener -->
+    <h1>Add Event Listener</h1>
+    <button id="myBtn11">Click me</button>
+    <button id="myBtn22">Click on me again</button>
+    <button id="myBtn33">Hover on me</button>
+    <!-- * End Add Event Listener -->
+
+    <!-- ! This is internal JavaScript -->
+    <script>
+      //! This is DOM Event Handler
+      document.getElementById("myBtn1").onclick = () => {
+        alert(
+          "Welcome! This is a Dom Event Handler! and this is a onClick event"
+        );
+      };
+      document.getElementById("myBtn2").ondblclick = () => {
+        alert(
+          "Welcome! This is a Dom Event Handler! and this is a ondblclick event"
+        );
+      };
+      document.getElementById("myBtn3").onmouseover = () => {
+        alert(
+          "Welcome! This is a Dom Event Handler! and this is a onmouseover event"
+        );
+      };
+
+      //! This is a Add Event Listener
+      document.getElementById("myBtn11").addEventListener("click", () => {
+        alert(
+          " Welcome! This is a Dom Event Handler! and this is a onClick event"
+        );
+      });
+      document.getElementById("myBtn22").addEventListener("dblclick", () => {
+        alert(
+          " Welcome! This is a Dom Event Handler! and this is a ondblclick event"
+        );
+      });
+      document.getElementById("myBtn33").addEventListener("mouseover", () => {
+        alert(
+          "Welcome! This is a Dom Event Handler! and this is a onmouseover event"
+        );
+      });
+    </script>
+  </body>
+</html>

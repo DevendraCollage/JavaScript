@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keyboard Events Demo</title>
+    <style>
+      body {
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        margin-top: 10rem;
+        background-color: #1b1b1d;
+      }
+
+      input {
+        line-height: 55px;
+        padding-left: 10px;
+        width: 100%;
+        background-color: lightblue;
+        border: 2px solid #1b1b1d;
+        color: black;
+        font-size: 2rem;
+        border-radius: 18px;
+      }
+
+      .output {
+        padding-left: 10px;
+        width: 100%;
+        background-color: white;
+        border: 2px solid #1b1b1d;
+        color: black;
+        font-size: 1.5rem;
+        border-radius: 15px;
+        word-break: break-all;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        margin-top: 10px;
+        font-weight: 900;
+        padding: 10px;
+        font-family: monospace;
+        border: 2px solid #1b1b1d;
+        border-radius: 15px;
+        word-break: break-all;
+      }
+
+      .keyPressed,
+      .charCode,
+      .keyCode,
+      .eventType {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="myInput" placeholder="Type Something ..." />
+      <div class="output">
+        <p class="keyPressed">Key Pressed :</p>
+        <p class="keyCode">Key Code :</p>
+        <p class="charCode">Char Code :</p>
+        <p class="eventType">Event Type :</p>
+      </div>
+    </div>
+
+    <script>
+      // Get the reference of input element by its id
+      var myInput = document.getElementById("myInput");
+
+      // ### 1. KeyDown Event Handler
+      myInput.addEventListener("keydown", (event) => {
+        // Display the event object
+        console.log(event);
+        // Display the information about the keyboard event in the console
+        console.log("Key Pressed : " + event.key);
+        console.log("Key Code  : " + event.keyCode);
+        console.log("Key Pressed : " + event.type);
+
+        // Display the information about the keyboard event in the display of the user
+        document.querySelector(
+          ".keyPressed"
+        ).textContent = `Key Pressed : ${event.key}`;
+        document.querySelector(
+          ".keyCode"
+        ).textContent = `Key Code : ${event.keyCode}`;
+        document.querySelector(
+          ".charCode"
+        ).textContent = `Char Code : ${event.charCode}`;
+        document.querySelector(
+          ".eventType"
+        ).textContent = `Event Type : ${event.type}`;
+      });
+
+      // ### 2. KeyUp Event Handler
+      myInput.addEventListener("keyup", (event) => {
+        // Display the event object
+        console.log(event);
+        // Display the information about the keyboard event in the console
+        console.log("Key Pressed : " + event.key);
+        console.log("Key Code  : " + event.keyCode);
+        console.log("Key Pressed : " + event.type);
+
+        // Display the information about the keyboard event in the display of the user
+        document.querySelector(
+          ".keyPressed"
+        ).textContent = `Key Pressed : ${event.key}`;
+        document.querySelector(
+          ".keyCode"
+        ).textContent = `Key Code : ${event.keyCode}`;
+        document.querySelector(
+          ".charCode"
+        ).textContent = `Char Code : ${event.charCode}`;
+        document.querySelector(
+          ".eventType"
+        ).textContent = `Event Type : ${event.type}`;
+      });
+
+      // ### 3. KeyPress Event Handler
+      myInput.addEventListener("keypress", (event) => {
+        // Display the event object
+        console.log(event);
+        // Display the information about the keyboard event in the console
+        console.log("Key Pressed : " + event.key);
+        console.log("Key Code  : " + event.keyCode);
+        console.log("Key Pressed : " + event.type);
+
+        // Display the information about the keyboard event in the display of the user
+        document.querySelector(
+          ".keyPressed"
+        ).textContent = `Key Pressed : ${event.key}`;
+        document.querySelector(
+          ".keyCode"
+        ).textContent = `Key Code : ${event.keyCode}`;
+        document.querySelector(
+          ".charCode"
+        ).textContent = `Char Code : ${event.charCode}`;
+        document.querySelector(
+          ".eventType"
+        ).textContent = `Event Type : ${event.type}`;
+      });
+    </script>
+  </body>
+</html>
