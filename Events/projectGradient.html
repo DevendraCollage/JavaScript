@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gradient Colors Generator</title>
+    <!-- ! External Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ! Apply Internal Style for Styling -->
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        background-image: linear-gradient(
+          to right,
+          rgb(10, 142, 229),
+          rgb(222, 95, 154)
+        ); /* Default background gradient */
+        font-family: "Poppins", sans-serif;
+        font-style: normal;
+      }
+
+      main {
+        width: 60%;
+      }
+
+      section {
+        text-align: center;
+      }
+
+      .copyCode {
+        margin: 20px auto;
+        width: 80%;
+        padding: 10px;
+        background-image: linear-gradient(
+          to right,
+          rgb(92, 145, 229),
+          rgb(152, 63, 198)
+        );
+        color: white;
+        border-radius: 15px;
+        cursor: pointer;
+        position: relative; /* Ensure proper positioning for pseudo-element */
+      }
+
+      .copyCode::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(152, 63, 198);
+        border-radius: 5px;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+        pointer-events: none; /* Ignore clicks on pseudo-element */
+      }
+
+      .copyCode.clicked::after {
+        opacity: 1; /* Make the pseudo-element visible on click */
+      }
+
+      .copyCode.clicked {
+        background-color: rgb(
+          152,
+          63,
+          198
+        ); /* Change background color on click */
+      }
+
+      #myButton,
+      #myButton2 {
+        margin: 10px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #myButton:hover,
+      #myButton2:hover {
+        background-color: rgb(
+          206,
+          204,
+          207
+        ); /* Add some transparency on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Gradient Colors Generator =></h1>
+    <section>
+      <div>
+        <button id="myButton">#051937</button>
+        <button id="myButton2">#008793</button>
+      </div>
+      <h2>Copy Code Here</h2>
+      <div class="copyCode">
+        background-image: linear-gradient(to right, rgb(92, 145, 229), rgb(152,
+        63, 198))
+      </div>
+    </section>
+    <script>
+      // Get reference of all the elements of the HTML
+      let btn1 = document.getElementById("myButton");
+      let btn2 = document.getElementById("myButton2");
+      let div1Code = document.querySelector(".copyCode");
+      let btnRGB1 = "rgb(92, 145, 229)";
+      let btnRGB2 = "rgb(152, 63, 198)";
+
+      // Function to generate the random color
+      const getHexColors = () => {
+        let myHexValues = "0123456789abcdfef"; // We access this string as an array
+        let colors = "#";
+        for (let i = 0; i < 6; i++) {
+          colors = colors + myHexValues[Math.floor(Math.random() * 16)];
+        }
+        return colors;
+      };
+
+      // Function to set the click event when button1 is click
+      const handleButton1 = () => {
+        btnRGB1 = getHexColors();
+        document.body.style.backgroundImage = `linear-gradient(to right, ${btnRGB1}, ${btnRGB2})`;
+        btn1.innerHTML = btnRGB1;
+        div1Code.innerHTML = `background-image: linear-gradient(to right, ${btnRGB1}, ${btnRGB2})`;
+      };
+
+      // Function to set the click event when button2 is click
+      const handleButton2 = () => {
+        btnRGB2 = getHexColors();
+        document.body.style.backgroundImage = `linear-gradient(to right, ${btnRGB1}, ${btnRGB2})`;
+        btn2.innerHTML = btnRGB2;
+        div1Code.innerHTML = `background-image: linear-gradient(to right, ${btnRGB1}, ${btnRGB2})`;
+      };
+
+      // Function when click on the colors code to copy
+      const copyToClipboard = () => {
+        navigator.clipboard.writeText(div1Code.innerHTML);
+        alert("Colors Code Will Be Copied!");
+      };
+
+      // Set the event on the button
+      btn1.addEventListener("click", handleButton1);
+      btn2.addEventListener("click", handleButton2);
+      div1Code.addEventListener("click", copyToClipboard);
+    </script>
+  </body>
+</html>
